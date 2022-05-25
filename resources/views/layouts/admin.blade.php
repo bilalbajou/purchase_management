@@ -48,7 +48,7 @@
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Bonjour, <span class="text-black fw-bold">{{ Auth::user()->name }} {{Auth::user()->first_name}}</span></h1>
+            <h1 class="welcome-text">Bonjour, <span class="text-black fw-bold">{{ Auth::user()->name }}   {{Auth::user()->first_name}}</span></h1>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">

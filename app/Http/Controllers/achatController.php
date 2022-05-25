@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\achat;
+
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\fournisseur;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
 
 class achatController extends Controller
@@ -53,6 +55,14 @@ class achatController extends Controller
             $bon->move('bon',$bon->getClientOriginalName());
         }
         $achat->save();
+        
+        return PDF::loadView('agent.bon_achat', compact('achat'))
+            ->setPaper('a4', 'landscape')
+            ->setWarnings(false)
+            ->save(public_path("C:\Users\BAJOUBILAL"))
+            ->stream();
+        
+
     }
 
     /**
