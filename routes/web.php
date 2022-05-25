@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\achatController;
+use App\Models\achat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/redirects', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::resource('achats', achatController::class);
+
+Route::get('redirects','App\Http\Controllers\roleController@index')->name('redirect');
 
 require __DIR__.'/auth.php';
