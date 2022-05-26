@@ -21,7 +21,8 @@ class achatController extends Controller
     public function index()
     {
       $frns=DB::table('frn_view')->get();
-      return view('agent.achat',compact('frns'));
+      $achats=DB::table('achats_view')->get();
+      return view('agent.achat',compact('frns'),compact('achats'));
     }
 
     /**
@@ -55,12 +56,14 @@ class achatController extends Controller
             $bon->move('bon',$bon->getClientOriginalName());
         }
         $achat->save();
-        
-        return PDF::loadView('agent.bon_achat', compact('achat'))
-            ->setPaper('a4', 'landscape')
-            ->setWarnings(false)
-            ->save(public_path("C:\Users\BAJOUBILAL"))
-            ->stream();
+
+
+
+        // return PDF::loadView('agent.bon_achat', compact('achat'))
+        //     ->setPaper('a4', 'landscape')
+        //     ->setWarnings(false)
+        //     ->save(public_path("C:\Users\BAJOUBILAL"))
+        //     ->stream();
         
 
     }

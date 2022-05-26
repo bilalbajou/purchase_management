@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="{{asset('admin/vendors/simple-line-icons/css/simple-line-icons.css')}}">
   <link rel="stylesheet" href="{{asset('admin/vendors/css/vendor.bundle.base.css')}}">
   <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
   
   <!-- endinject -->
   <!-- Plugin css for this page -->

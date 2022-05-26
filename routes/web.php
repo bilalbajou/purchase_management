@@ -23,8 +23,12 @@ Route::get('/redirects', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('achats', achatController::class);
+Route::middleware(['auth','isAgent'])->group(function () {
+    Route::resource('achats', achatController::class);
+});
 
 Route::get('redirects','App\Http\Controllers\roleController@index')->name('redirect');
-
+Route::fallback(function() {
+    return view('404');
+});
 require __DIR__.'/auth.php';
