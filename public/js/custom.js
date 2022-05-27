@@ -1,4 +1,6 @@
+
   // submit logout form
+
 document.getElementById('logout_btn').addEventListener('click',()=>{
        document.getElementById('frm_logout').submit();
 })    
@@ -16,9 +18,11 @@ $(document).ready(function(){
 })
 
 
-document.getElementById("btn_submit").addEventListener('click',()=>{
-          document.getElementById("frm_add").submit();
-})
+// document.getElementById("#btn_remove").addEventListener('click',(e)=>{
+         
+//           document.getElementById("#frm_remove").submit();
+// })
+
 
 
 

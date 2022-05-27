@@ -31,7 +31,7 @@ return [
         'array' => 'The :attribute must have between :min and :max items.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
+    'confirmed' => 'La confirmation du mot de passe ne correspond pas.',
     'current_password' => 'The password is incorrect.',
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
@@ -58,7 +58,7 @@ return [
     'gte' => [
         'numeric' => 'The :attribute must be greater than or equal to :value.',
         'file' => 'The :attribute must be greater than or equal to :value kilobytes.',
-        'string' => 'The :attribute must be greater than or equal to :value characters.',
+        'string' => 'Le mot de passe doit comporter au moins value caractères.',
         'array' => 'The :attribute must have :value items or more.',
     ],
     'image' => 'The :attribute must be an image.',

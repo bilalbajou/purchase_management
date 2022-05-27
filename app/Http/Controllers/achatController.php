@@ -20,9 +20,10 @@ class achatController extends Controller
      */
     public function index()
     {
+      $agent=Auth::user()->id;
       $frns=DB::table('frn_view')->get();
-      $achats=DB::table('achats_view')->get();
-      return view('agent.achat',compact('frns'),compact('achats'));
+      $achats=DB::table('achats_view')->where('Agent',Auth::user()->id)->get();
+      return view('agent.achat',compact('frns'),compact('achats'))->with('agent',$agent);
     }
 
     /**
@@ -57,15 +58,8 @@ class achatController extends Controller
         }
         $achat->save();
 
-
-
-        // return PDF::loadView('agent.bon_achat', compact('achat'))
-        //     ->setPaper('a4', 'landscape')
-        //     ->setWarnings(false)
-        //     ->save(public_path("C:\Users\BAJOUBILAL"))
-        //     ->stream();
-        
-
+        return  redirect()->back()->with('success','Le sauvegarde est réussi');
+            
     }
 
     /**
@@ -87,7 +81,10 @@ class achatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agent=Auth::user()->id;
+        $frns=DB::table('frn_view')->get();
+          $achat=DB::table('achats')->where('id_achat',$id)->first();
+          return view('agent.update.achatEdit',compact('achat'),compact('frns'))->with('agent',$agent);
     }
 
     /**
@@ -99,7 +96,20 @@ class achatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $achat=achat::find($id);
+         $achat->libellé=$request->input('libll');
+         $achat->date_achat=$request->input('date_achat');
+         $achat->montant_total=$request->input('montant');
+         $achat->fournisseur=$request->get('frn');
+         $achat->Agent=Auth::user()->id;
+         if($request->file('bon')){
+         $bon=$request->file('bon');
+         $achat->bon=$bon->getClientOriginalName();
+         $bon->move('bon',$bon->getClientOriginalName());
+           }
+         $achat->save();
+          
+         return  redirect()->back()->with('success','Le modification est réussi');
     }
 
     /**
@@ -110,6 +120,7 @@ class achatController extends Controller
      */
     public function destroy($id)
     {
-        //
+          DB::table('achats')->where('id_achat',$id)->delete();
+          return redirect()->back()->with('success','suppression réussi');
     }
 }

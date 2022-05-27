@@ -42,7 +42,7 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                          <input id="email" name="email" placeholder="email address" class="form-control"  type="email" required>
+                          <input id="email" name="email" placeholder="Email" class="form-control"  type="email" required>
                         </div>
                       </div>
                       <div class="form-group">
@@ -50,6 +50,8 @@
                       </div>
                       
                     </form>
+                    <a href="{{url('/')}}"><button type="button"  class="btn btn-primary">Retour</button></a>
+
     
                   </div>
                 </div>

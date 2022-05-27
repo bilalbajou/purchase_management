@@ -65,7 +65,7 @@
                 <p class="fw-light text-muted mb-0 text-uppercase">{{ Auth::user()->type_utilisateur }}</p>
               </div>
               
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Profile</a>
+              <a class="dropdown-item" href="{{route('profil.index')}}"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Profile</a>
               <form method="POST" id="frm_logout" action="{{route('logout')}}">
                @csrf
               <a class="dropdown-item" id="logout_btn"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Déconnection</a>
@@ -101,7 +101,7 @@
           </li>
          
           <li class="nav-item">
-            <a class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
+            <a href="{{route('fournisseurs.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
               <i class="menu-icon mdi mdi-account-multiple-outline"></i>
               <span class="menu-title">Fournisseurs</span>
             </a>
@@ -137,6 +137,8 @@
 
   <!-- plugins:js -->
   <script src="{{asset('admin/vendors/js/vendor.bundle.base.js')}}"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <!-- endinject -->
   <!-- Plugin js for this page -->
   {{-- <script src="{{ asset('js/app.js') }}" ></script> --}}

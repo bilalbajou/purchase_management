@@ -7,11 +7,19 @@
 @section('content')
 <div class="container-xl">
     <div class="table-responsive">
-        
-         <div class="d-flex flex-row-reverse mb-2">
-        <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button>
-        <button type="button" id="btn_add" class="btn btn-outline-primary" data-target="#addModal" data-toggle="modal">Ajouter</button>
-            </div>
+      <div class="d-flex">
+         
+         @if (\Session::has('success'))
+         <div class="alert alert-primary d-flex  justify-content-start mb-2" role="alert">
+           {!! \Session::get('success') !!}
+         </div>
+         @endif
+         <div class="d-flex  mb-2 justify-content-end">
+          <button type="button" id="btn_add" class="btn btn-outline-primary ms-2" data-target="#addModal" data-toggle="modal">Ajouter</button>
+          <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button>
+
+         </div>
+      </div>
 
         <div class="table-wrapper">
             <table class="table table-striped table-hover">
@@ -34,9 +42,13 @@
                         <td>{{$value->montant_total}}</td>
                         <td>{{$value->nom}}</td>
                         <td>
-                          <a href="#" ><i class="fas fa-edit"></i></a>
-                          <a href="#" ><i class="fas fa-remove"></i></a>
-                          
+                          <form action="{{route('achats.destroy',$value->id_achat)}}" method="POST" id="frm_remove">
+                            @csrf
+                            @method('DELETE') 
+
+                          <a href="{{ route('achats.edit',$value->id_achat) }}" ><i class="fas fa-edit"></i></a>
+                          <button type="submit"  style="border-style: none;background-color:transparent;"><i class="fas fa-remove"></i></button> 
+                          </form>
                       </td>
                     </tr>
                   @endforeach
@@ -53,31 +65,37 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Nouveau achat</h5>
-        <button type="button" id="add_close" >
+        
+        <button id="add_close" >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+  
+        
         <form action="{{route('achats.store')}}" id="frm_add" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="libll">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="libll" id="libll" required>
             <label for="floatingInput">Libellé</label>
+            <div class="invalid-feedback">
+              Please choose a username.
+            </div>
           </div>
           <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="floatingPassword" placeholder="Password" name="achatDate">
+            <input type="date" class="form-control" id="floatingPassword" placeholder="Password" name="achatDate" id="date_achat" required>
             <label for="floatingPassword">Date d'achat</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingPassword" placeholder="Password" name="montant">
+            <input type="number" class="form-control" id="floatingPassword" placeholder="Password" name="montant" id="montant" required>
             <label for="floatingPassword">Montant</label>
           </div>
           <div class="input-group mb-3">
             @if (count($frns)=== 0)
-            <button type="button"  class="btn btn-primary" id="btn_submit">Ajouter fournisseur</button>
+            <button type="button"  class="btn btn-primary" id="btn_frn">Ajouter fournisseur</button>
             @else     
             <label class="input-group-text" for="inputGroupSelect01">Fournisseur</label>
-            <select class="form-select" id="inputGroupSelect01" name="frn">
+            <select class="form-select" id="inputGroupSelect01" name="frn" id="frn" required>
               @foreach ($frns as $value)
                   <option value="{{$value->id_frn}}">{{ $value->nom }}</option>
               @endforeach
@@ -86,14 +104,18 @@
           </div>
           <div>
             <label for="formFileLg" class="form-label">Bon</label>
-            <input name="bon" class="" id="formFileLg" type="file"  >
+            <input name="bon" class="" id="formFileLg" type="file" id="bon"  required>
+            <input type="hidden" name="agent" value="{{$agent}}" id="agent">
           </div>
-        </form>
+          
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_add_close">Close</button>
-        <button type="button"  class="btn btn-primary" id="btn_submit">Ajouter</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_add_close" >Fermer</button>
+        <input type="submit"  class="btn btn-primary"  value="Ajouter">
       </div>
+    </form>
+
     </div>
   </div>
 </div>
