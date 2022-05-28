@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\achatController;
+use App\Http\Controllers\achatsAdminController;
 use App\Http\Controllers\agentController;
+use App\Http\Controllers\frnAdminController;
 use App\Http\Controllers\frnController;
 use App\Http\Controllers\profilController;
 use App\Models\achat;
@@ -35,7 +37,8 @@ Route::middleware(['auth','isAdmin'])->group(function () {
     Route::resource('agents', agentController::class);
     Route::put('/agents/activer/{agents}',[agentController::class,'activer'])->name('agents.activer');
     Route::put('/agents/désactiver/{agents}',[agentController::class,'desactiver'])->name('agents.désactiver');
-
+    Route::get('/Liste_des_achats',[achatsAdminController::class,'index'])->name('achatsAdmin.index');
+    Route::get('/Liste_des_fournisseurs',[frnAdminController::class,'index'])->name('frnAdmin.index');
 });
 
 Route::get('redirects','App\Http\Controllers\roleController@index')->name('redirect');

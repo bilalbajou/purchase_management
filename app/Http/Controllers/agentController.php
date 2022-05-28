@@ -39,6 +39,7 @@ class agentController extends Controller
      */
     public function store(Request $request)
     {
+            
            $all_users=User::all();
            foreach($all_users as $value){
                  if($value->email==$request->email)

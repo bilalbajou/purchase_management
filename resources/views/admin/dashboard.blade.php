@@ -2,8 +2,5 @@
 
 @section('page_title')
  
-      
-
-
 
 @endsection

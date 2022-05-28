@@ -101,13 +101,13 @@
           </li>
          
           <li class="nav-item">
-            <a href="{{route('fournisseurs.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
+            <a href="{{route('achatsAdmin.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
               <i class="menu-icon mdi mdi-account-multiple-outline"></i>
               <span class="menu-title">Achats</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('fournisseurs.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
+            <a href="{{route('frnAdmin.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
               <i class="menu-icon mdi mdi-account-multiple-outline"></i>
               <span class="menu-title">Fournisseurs</span>
             </a>
