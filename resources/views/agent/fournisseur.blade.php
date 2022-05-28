@@ -6,12 +6,20 @@
 
 @section('content')
 <div class="container-xl">
-    <div class="table-responsive">
-        
-         <div class="d-flex flex-row-reverse mb-2">
-        <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button>
-        <button type="button" id="btn_add" class="btn btn-outline-primary" data-target="#addModal" data-toggle="modal">Ajouter</button>
-            </div>
+    <div class="table-responsive">      
+      <div class="d-flex">
+         
+        @if (\Session::has('success'))
+        <div class="alert alert-primary d-flex  justify-content-start mb-2" role="alert">
+          {!! \Session::get('success') !!}
+        </div>
+        @endif
+        <div class="d-flex  mb-2 justify-content-end">
+         <button type="button" id="btn_add" class="btn btn-outline-primary ms-2" data-target="#addModal" data-toggle="modal">Ajouter</button>
+         <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button>
+
+        </div>
+     </div>
 
         <div class="table-wrapper">
             <table class="table table-striped table-hover">
@@ -32,8 +40,13 @@
                         <td>{{$value->telephone}}</td>
                         <td>{{$value->adresse}}</td>
                         <td>
-                          <a href="#" ><i class="fas fa-edit"></i></a>
-                          <a href="#" ><i class="fas fa-remove"></i></a>
+                          <form action="{{route('fournisseurs.destroy',$value->id_frn)}}" method="POST">
+                            @csrf
+                            @method('DELETE') 
+
+                          <a href="{{ route('fournisseurs.edit',$value->id_frn) }}" ><i class="fas fa-edit"></i></a>
+                          <button type="submit"  style="border-style: none;background-color:transparent;"><i class="fas fa-remove"></i></button> 
+                          </form>
                       </td>
                     </tr>
                   @endforeach
@@ -56,10 +69,10 @@
       </div>
       <div class="modal-body">
        
-        <form action="{{route('fournisseurs.store')}}" id="frm_add" method="POST" enctype="multipart/form-data" >
+        <form action="{{route('fournisseurs.store')}}"  method="POST" enctype="multipart/form-data" >
           @csrf
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="Nom" name="nom" id="nom" required>
+            <input type="text" class="form-control" id="floatingInput" placeholder="Nom" name="nom" id="nom" required>
             <label for="floatingInput">Nom</label>
           </div>
           <div class="form-floating mb-3">
@@ -67,15 +80,16 @@
             <label for="floatingPassword">Adresse</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="floatingPassword" placeholder="telephone" name="tel" id="tel" required>
+            <input type="number" class="form-control" id="floatingPassword" placeholder="telephone" name="tel" id="tel" required>
             <label for="floatingPassword">Téléphone</label>
           </div>
-        </form>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_add_close">Close</button>
-        <button type="button" type="submit"  class="btn btn-primary" id="btn_submit">Ajouter</button>
-      </div>
+        <button type="submit" type="submit"  class="btn btn-primary" >Ajouter</button>
+      </div> 
+    </form>
     </div>
   </div>
 </div>

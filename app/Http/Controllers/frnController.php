@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\fournisseur;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class frnController extends Controller
 {
@@ -25,7 +26,7 @@ class frnController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +37,14 @@ class frnController extends Controller
      */
     public function store(Request $request)
     {
-        //
+           $frn=new fournisseur();
+           $frn->nom=$request->input('nom');
+           $frn->adresse=$request->input('adr');
+           $frn->telephone=$request->input('tel');
+           $frn->save();
+               
+            return  redirect()->back()->with('success','Le sauvegarde est réussi');
+
     }
 
     /**
@@ -58,7 +66,8 @@ class frnController extends Controller
      */
     public function edit($id)
     {
-        //
+          $frn=DB::table('fournisseurs')->where('id_frn',$id)->first();
+          return view('agent.update.frnEdit',compact('frn'));
     }
 
     /**
@@ -70,7 +79,13 @@ class frnController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $frn=fournisseur::find($id);
+        $frn->nom=$request->input('nom');
+        $frn->adresse=$request->input('adr');
+        $frn->telephone=$request->input('tel');
+         $frn->save();
+        return  redirect()->back()->with('success','Le modification est réussi');
+
     }
 
     /**
@@ -81,6 +96,7 @@ class frnController extends Controller
      */
     public function destroy($id)
     {
-        //
+          DB::table('fournisseurs')->where('id_frn',$id)->delete();
+          return redirect()->back()->with('success','suppression réussi');
     }
 }
