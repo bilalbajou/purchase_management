@@ -1,6 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.admin2')
 
 @section('page_title')
  
-Admin
+      
+
+
+
 @endsection
