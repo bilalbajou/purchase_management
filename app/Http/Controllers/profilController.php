@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class profilController extends Controller
 {
@@ -32,7 +33,7 @@ class profilController extends Controller
                     $validated = $request->validate([
                         'pass' => 'confirmed|min:8',
                     ]);
-                       DB::table('users')->where('id',Auth::user()->id)->update(['password'=>$request->input('pass')]);
+                       DB::table('users')->where('id',Auth::user()->id)->update(['password'=>Hash::make($request->input('pass'))]);
                       return  redirect()->route('profil.index')->with('success','La modification du mot de passe est réussi');
 
                 }

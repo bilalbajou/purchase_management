@@ -28,7 +28,7 @@ Modifier
   <input type="date" class="form-control form-control-lg"  value="{{$achat->date_achat}}" name="date_achat" required>
   </div>
   <div class=" col-sm-12 col-lg-6 col-md-6">
-    <label for="montant" class="form-label">Montant</label>
+    <label for="montant" class="form-label">Montant (DH)</label>
     <input type="number" class="form-control form-control-lg"  value="{{$achat->montant_total}}" name="montant" required>
   </div>
   <div class=" col-sm-12 col-lg-6 col-md-6">

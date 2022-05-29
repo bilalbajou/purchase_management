@@ -39,7 +39,7 @@
                         <td>{{$value->id_achat}}</td>
                         <td>{{$value->libellé}}</td>
                         <td>{{$value->date_achat}}</td>
-                        <td>{{$value->montant_total}}</td>
+                        <td>{{$value->montant_total}} DH</td>
                         <td>{{$value->nom}}</td>
                         <td>
                           <form action="{{route('achats.destroy',$value->id_achat)}}" method="POST" >
@@ -85,11 +85,11 @@
           </div>
           <div class="form-floating mb-3">
             <input type="number" class="form-control" placeholder="montant" name="montant" required>
-            <label for="montant">Montant</label>
+            <label for="montant">Montant (DH)</label>
           </div>
           <div class="input-group mb-3">
             @if (count($frns)=== 0)
-            <button type="button"  class="btn btn-primary" ><a href="{{route('fournisseurs.index')}}"></a></button>
+            <button type="button"  class="btn btn-primary" ><a href="{{route('fournisseurs.index')}}">Ajouter Fournisseur</a></button>
             @else     
             <label class="input-group-text" for="frn">Fournisseur</label>
             <select class="form-select" id="inputGroupSelect01" name="frn"  required>

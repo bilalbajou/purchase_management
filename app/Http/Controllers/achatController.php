@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\achat;
-
-use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\fournisseur;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
@@ -57,8 +57,11 @@ class achatController extends Controller
             $bon->move('bon',$bon->getClientOriginalName());
         }
         $achat->save();
-
+        $achat_pdf=DB::table('achats_view_v2')->where('id_achat',$achat->id_achat)->first();
+        $pdf = PDF::loadView('agent.bon_achat',compact('achat_pdf'));
+        return  $pdf->download($achat_pdf->id_achat.'_'.$achat_pdf->date_achat.'.pdf');
         return  redirect()->back()->with('success','Le sauvegarde est réussi');
+
             
     }
 
@@ -108,8 +111,11 @@ class achatController extends Controller
          $bon->move('bon',$bon->getClientOriginalName());
            }
          $achat->save();
-          
+         $achat_pdf=DB::table('achats_view_v2')->where('id_achat',$achat->id_achat)->first();
+         $pdf = PDF::loadView('agent.bon_achat',compact('achat_pdf'));
+        //  return  $pdf->download($achat_pdf->id_achat.'_'.$achat_pdf->date_achat.'.pdf');
          return  redirect()->back()->with('success','Le modification est réussi');
+
     }
 
     /**

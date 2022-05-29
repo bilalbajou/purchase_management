@@ -56,7 +56,7 @@ class agentController extends Controller
           $user->password=Hash::make($password);
           $user->etat_compte="A";
           $user->save();
-          Mail::to($user->email)->send(new infoAgent);
+          Mail::to($user->email)->send(new infoAgent($user,$password));
           return  redirect()->back()->with('success','Le sauvegarde est réussi');
           
     }

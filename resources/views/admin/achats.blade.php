@@ -25,7 +25,7 @@ Agent
                         <td>{{$value->id_achat}}</td>
                         <td>{{$value->libellé}}</td>
                         <td>{{$value->date_achat}}</td>
-                        <td>{{$value->montant_total}}</td> 
+                        <td>{{$value->montant_total}} DH</td> 
                         <td>{{$value->fournisseur}}</td>  
                         <td>{{$value->agent}}</td>            
                     </tr>
