@@ -8,7 +8,14 @@
 <div class="container-xl">
     <div class="table-responsive">      
       <div class="d-flex">
-         
+        @if ($errors->any())
+        <div class="alert alert-danger d-flex  justify-content-start mb-2alert alert-danger">
+            
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+        </div>
+         @endif
         @if (\Session::has('success'))
         <div class="alert alert-primary d-flex  justify-content-start mb-2" role="alert">
           {!! \Session::get('success') !!}
@@ -16,7 +23,7 @@
         @endif
         <div class="d-flex  mb-2 justify-content-end">
          <button type="button" id="btn_add" class="btn btn-outline-primary ms-2" >Ajouter</button>
-         <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button>
+        <a href="{{route('frns.export')}}"><button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button></a>
 
         </div>
      </div>

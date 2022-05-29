@@ -16,8 +16,7 @@
          @endif
          <div class="d-flex  mb-2 justify-content-end">
           <button type="button" id="btn_add" class="btn btn-outline-primary ms-2">Ajouter</button>
-          <button type="button"  class="btn btn-outline-primary ms-2">Exporter</button>
-
+          <a href="{{ route('achats.export') }}"><button type="button"  class="btn btn-outline-primary ms-2">Exporter</button></a>
          </div>
       </div>
 
@@ -89,7 +88,7 @@
           </div>
           <div class="input-group mb-3">
             @if (count($frns)=== 0)
-            <button type="button"  class="btn btn-primary" ><a href="{{route('fournisseurs.index')}}">Ajouter Fournisseur</a></button>
+            <a href="{{route('fournisseurs.index')}}"><button type="button"  class="btn btn-primary" >Ajouter Fournisseur</button></a>
             @else     
             <label class="input-group-text" for="frn">Fournisseur</label>
             <select class="form-select" id="inputGroupSelect01" name="frn"  required>

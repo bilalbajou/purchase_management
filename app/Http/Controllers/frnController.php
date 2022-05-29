@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -96,7 +97,18 @@ class frnController extends Controller
      */
     public function destroy($id)
     {
+          $frn=DB::table('achats')->where('fournisseur',$id);
+          if($frn->count()>0){
+                 return redirect()->route('fournisseurs.index')->withErrors('Vous ne pouvez pas supprimer un fournisseur à des achats');
+          }
           DB::table('fournisseurs')->where('id_frn',$id)->delete();
           return redirect()->back()->with('success','suppression réussi');
+    }
+    public function exportPdf(){
+    
+        $frns=DB::table('fournisseurs')->get();
+         view()->share('achats',$frns);
+        $pdf = PDF::loadView('agent.pdfListeFrn',compact('frns'));
+        return  $pdf->download('liste_des_fournisseurs.pdf');
     }
 }

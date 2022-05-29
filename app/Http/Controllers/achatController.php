@@ -64,6 +64,13 @@ class achatController extends Controller
 
             
     }
+    public function exportPdf(){
+    
+        $achats=DB::table('achats_view_v2')->where('id_agent',Auth::user()->id)->get();
+         view()->share('achats',$achats);
+        $pdf = PDF::loadView('agent.pdfListeAchat',compact('achats'));
+        return  $pdf->download('liste_des_achats.pdf');
+    }
 
     /**
      * Display the specified resource.
@@ -129,4 +136,5 @@ class achatController extends Controller
           DB::table('achats')->where('id_achat',$id)->delete();
           return redirect()->back()->with('success','suppression réussi');
     }
+    
 }

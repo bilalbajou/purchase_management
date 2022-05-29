@@ -3,6 +3,7 @@
 use App\Http\Controllers\achatController;
 use App\Http\Controllers\achatsAdminController;
 use App\Http\Controllers\agentController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\frnAdminController;
 use App\Http\Controllers\frnController;
 use App\Http\Controllers\profilController;
@@ -32,6 +33,8 @@ Route::middleware(['auth','isAgent'])->group(function () {
     Route::resource('achats', achatController::class);
     Route::resource('fournisseurs', frnController::class);
     Route::get('/user/profil',[profilController::class,'index'])->name('profil.index');
+    Route::get('/achats/all/export',[achatController::class,'exportPdf'])->name('achats.export');
+    Route::get('/fournisseurs/all/export',[frnController::class,'exportPdf'])->name('frns.export');
 
 });
 Route::middleware(['auth','isAdmin'])->group(function () {
