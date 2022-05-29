@@ -28,8 +28,9 @@ class agentController extends Controller
      */
     public function create()
     {
-        //
+        
     }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -43,7 +44,7 @@ class agentController extends Controller
            $all_users=User::all();
            foreach($all_users as $value){
                  if($value->email==$request->email)
-                   return redirect()->route('agents.index')->withErrors('Email existe déjà');
+                   return redirect()->route('agents.index')->withErrors('Email existe déjà');break;
            }
           $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');
           $password = substr($random, 8, 10);

@@ -20,15 +20,15 @@ Modifier
 
 <div class="row">
   <div class=" mb-3 col-sm-12 col-lg-6 col-md-6">
-    <label for="exampleFormControlInput1" class="form-label">Nom</label>
+    <label for="nom" class="form-label">Nom</label>
   <input type="text" class="form-control form-control-lg"  value="{{$frn->nom}}" name="nom" required>
   </div>
   <div class=" col-sm-12 col-lg-6 col-md-6">
-    <label for="exampleFormControlInput1" class="form-label">Adresse</label>
+    <label for="adr" class="form-label">Adresse</label>
   <input type="text" class="form-control form-control-lg"  value="{{$frn->adresse}}" name="adr" required>
   </div>
   <div class="col-sm-12 col-lg-6 col-md-6 mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Téléphone</label>
+    <label for="tel" class="form-label">Téléphone</label>
     <input type="number" class="form-control form-control-lg"  value="{{$frn->telephone}}" name="tel" required>
   </div>
 </div>

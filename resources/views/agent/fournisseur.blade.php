@@ -15,7 +15,7 @@
         </div>
         @endif
         <div class="d-flex  mb-2 justify-content-end">
-         <button type="button" id="btn_add" class="btn btn-outline-primary ms-2" data-target="#addModal" data-toggle="modal">Ajouter</button>
+         <button type="button" id="btn_add" class="btn btn-outline-primary ms-2" >Ajouter</button>
          <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button>
 
         </div>
@@ -58,7 +58,7 @@
         </div>
     </div>
 </div>     
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal"  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -69,24 +69,24 @@
       </div>
       <div class="modal-body">
        
-        <form action="{{route('fournisseurs.store')}}"  method="POST" enctype="multipart/form-data" >
+        <form action="{{route('fournisseurs.store')}}"  method="POST" >
           @csrf
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Nom" name="nom" id="nom" required>
-            <label for="floatingInput">Nom</label>
+            <input type="text" class="form-control"  placeholder="Nom" name="nom"  required>
+            <label for="nom">Nom</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingPassword" placeholder="Adresse" name="adr" id="adr" required>
-            <label for="floatingPassword">Adresse</label>
+            <input type="text" class="form-control"  placeholder="Adresse" name="adr" id="adr" required>
+            <label for="adr">Adresse</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingPassword" placeholder="telephone" name="tel" id="tel" required>
-            <label for="floatingPassword">Téléphone</label>
+            <input type="number" class="form-control"  placeholder="telephone" name="tel" required>
+            <label for="tel">Téléphone</label>
           </div>
        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_add_close">Close</button>
+        <button type="button" class="btn btn-secondary" id="btn_add_close">Close</button>
         <button type="submit" type="submit"  class="btn btn-primary" >Ajouter</button>
       </div> 
     </form>

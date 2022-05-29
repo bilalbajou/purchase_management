@@ -39,12 +39,12 @@
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="index.html">
+          {{-- <a class="navbar-brand brand-logo" href="index.html">
             <img src="{{asset('images/dashboard.png')}}" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.html">
             <img src="{{asset('images/dashboard.png')}}" alt="logo" />
-          </a>
+          </a> --}}
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
@@ -102,7 +102,7 @@
          
           <li class="nav-item">
             <a href="{{route('fournisseurs.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
-              <i class="menu-icon mdi mdi-account-multiple-outline"></i>
+              <i class="menu-icon mdi mdi-account-tie"></i>
               <span class="menu-title">Fournisseurs</span>
             </a>
         

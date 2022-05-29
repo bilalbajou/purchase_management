@@ -2,8 +2,7 @@
 
 @section('page_title')
  
-agent
-
+Tableau du board
 @endsection
 
 

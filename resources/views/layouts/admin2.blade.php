@@ -39,12 +39,12 @@
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="index.html">
+          {{-- <a class="navbar-brand brand-logo" href="index.html">
             <img src="{{asset('images/dashboard.png')}}" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.html">
             <img src="{{asset('images/dashboard.png')}}" alt="logo" />
-          </a>
+          </a> --}}
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
@@ -94,7 +94,7 @@
           
           <li class="nav-item">
             <a class="nav-link"  href="{{route('agents.index')}}" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-cash-multiple"></i>
+              <i class="menu-icon mdi mdi-account-group"></i>
               <span class="menu-title">Agent</span> 
             </a>
             
@@ -102,13 +102,13 @@
          
           <li class="nav-item">
             <a href="{{route('achatsAdmin.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
-              <i class="menu-icon mdi mdi-account-multiple-outline"></i>
+              <i class="menu-icon mdi mdi-cash"></i>
               <span class="menu-title">Achats</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('frnAdmin.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
-              <i class="menu-icon mdi mdi-account-multiple-outline"></i>
+              <i class="menu-icon mdi mdi-account-tie"></i>
               <span class="menu-title">Fournisseurs</span>
             </a>
           </li>

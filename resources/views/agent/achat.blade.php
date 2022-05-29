@@ -15,8 +15,8 @@
          </div>
          @endif
          <div class="d-flex  mb-2 justify-content-end">
-          <button type="button" id="btn_add" class="btn btn-outline-primary ms-2" data-target="#addModal" data-toggle="modal">Ajouter</button>
-          <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button>
+          <button type="button" id="btn_add" class="btn btn-outline-primary ms-2">Ajouter</button>
+          <button type="button"  class="btn btn-outline-primary ms-2">Exporter</button>
 
          </div>
       </div>
@@ -42,7 +42,7 @@
                         <td>{{$value->montant_total}}</td>
                         <td>{{$value->nom}}</td>
                         <td>
-                          <form action="{{route('achats.destroy',$value->id_achat)}}" method="POST" id="frm_remove">
+                          <form action="{{route('achats.destroy',$value->id_achat)}}" method="POST" >
                             @csrf
                             @method('DELETE') 
 
@@ -60,7 +60,7 @@
         </div>
     </div>
 </div>     
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -76,26 +76,23 @@
         <form action="{{route('achats.store')}}" id="frm_add" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="libll" id="libll" required>
-            <label for="floatingInput">Libellé</label>
-            <div class="invalid-feedback">
-              Please choose a username.
-            </div>
+            <input type="text" class="form-control"  placeholder="libellé" name="libll"  required>
+            <label for="libll">Libellé</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="floatingPassword" placeholder="Password" name="achatDate" id="date_achat" required>
-            <label for="floatingPassword">Date d'achat</label>
+            <input type="date" class="form-control" placeholder="date_achat" name="achatDate" required>
+            <label for="achatDate">Date d'achat</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingPassword" placeholder="Password" name="montant" id="montant" required>
-            <label for="floatingPassword">Montant</label>
+            <input type="number" class="form-control" placeholder="montant" name="montant" required>
+            <label for="montant">Montant</label>
           </div>
           <div class="input-group mb-3">
             @if (count($frns)=== 0)
-            <button type="button"  class="btn btn-primary" id="btn_frn">Ajouter fournisseur</button>
+            <button type="button"  class="btn btn-primary" ><a href="{{route('fournisseurs.index')}}"></a></button>
             @else     
-            <label class="input-group-text" for="inputGroupSelect01">Fournisseur</label>
-            <select class="form-select" id="inputGroupSelect01" name="frn" id="frn" required>
+            <label class="input-group-text" for="frn">Fournisseur</label>
+            <select class="form-select" id="inputGroupSelect01" name="frn"  required>
               @foreach ($frns as $value)
                   <option value="{{$value->id_frn}}">{{ $value->nom }}</option>
               @endforeach
@@ -103,15 +100,15 @@
             @endif
           </div>
           <div>
-            <label for="formFileLg" class="form-label">Bon</label>
-            <input name="bon" class="" id="formFileLg" type="file" id="bon"  required>
-            <input type="hidden" name="agent" value="{{$agent}}" id="agent">
+            <label for="bon" class="form-label">Bon</label>
+            <input name="bon" class=""  type="file" id="bon"  >
+            <input type="hidden" name="agent" value="{{$agent}}" >
           </div>
           
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_add_close" >Fermer</button>
+        <button type="button" class="btn btn-secondary"  id="btn_add_close" >Fermer</button>
         <input type="submit"  class="btn btn-primary"  value="Ajouter">
       </div>
     </form>
