@@ -22,7 +22,7 @@ Agent
          @endif
          <div class="d-flex  mb-2 justify-content-end">
           <button type="button" id="btn_add" class="btn btn-outline-primary ms-2" data-target="#addModal" data-toggle="modal">Ajouter</button>
-          <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button>
+          <a href="{{route('agents.export')}}"> <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button></a>
           
          </div>
       </div>
@@ -69,6 +69,9 @@ Agent
             </table>
          
         </div>
+        <div class="d-flex justify-content-center">
+          {!! $user->links() !!}
+      </div>
     </div>
 </div>     
 <div class="modal fade" id="addModal" >

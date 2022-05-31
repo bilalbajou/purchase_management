@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\infoAgent;
 use App\Models\User;
+use App\Mail\infoAgent;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -17,7 +19,7 @@ class agentController extends Controller
      */
     public function index()
     {
-        $user=User::all()->where('type_utilisateur','agent');
+        $user=DB::table('users')->where('type_utilisateur','agent')->paginate(8);
         return view('admin.agent',compact('user'));
     }
 
@@ -70,8 +72,14 @@ class agentController extends Controller
     public function show($id)
     {
         //
-    }
 
+    }
+    public function exportPdf(){
+        $agent=DB::table('users')->where('type_utilisateur','agent')->get();
+         view()->share('agent',$agent);
+        $pdf = PDF::loadView('admin.pdfListeAgent',compact('agent'));
+        return  $pdf->download('liste_des_agents.pdf');
+    }
     /**
      * Show the form for editing the specified resource.
      *

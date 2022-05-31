@@ -61,7 +61,9 @@
                     
                 </tbody>
             </table>
-         
+            <div class="d-flex justify-content-center">
+              {!! $frns->links() !!}
+          </div>
         </div>
     </div>
 </div>     

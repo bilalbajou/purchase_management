@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 class achatsAdminController extends Controller
 {
        public function index(){
-        $achats=DB::table('achats_view_v2')->get();
-        return view('admin.achats',compact('achats'));
+        $frns=DB::table('frn_view')->get();
+        $achats=DB::table('achats_view_v2')->paginate(8);
+        return view('admin.achats',compact('achats'),compact('frns'));
        }
 }

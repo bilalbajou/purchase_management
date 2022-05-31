@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class frnAdminController extends Controller
 {
         public function index(){
-          $frns=DB::table('view_frn_v2')->get();
+          $frns=DB::table('frn_view_v2')->paginate(10);
         return view('admin.frn',compact('frns'));
     }
 }

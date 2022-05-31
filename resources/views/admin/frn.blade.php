@@ -36,6 +36,9 @@ Agent
             </table>
          
         </div>
+        <div class="d-flex justify-content-center">
+            {!! $frns->links() !!}
+        </div>
     </div>
 </div>     
 

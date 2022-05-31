@@ -55,7 +55,9 @@
                     
                 </tbody>
             </table>
-         
+            <div class="d-flex justify-content-center">
+              {!! $achats->links() !!}
+          </div>
         </div>
     </div>
 </div>     

@@ -16,7 +16,7 @@ class frnController extends Controller
      */
     public function index()
     { 
-        $frns=fournisseur::all();
+        $frns=fournisseur::paginate(5);
         return view('agent.fournisseur',compact('frns'));
     }
 
@@ -43,7 +43,6 @@ class frnController extends Controller
            $frn->adresse=$request->input('adr');
            $frn->telephone=$request->input('tel');
            $frn->save();
-               
             return  redirect()->back()->with('success','Le sauvegarde est réussi');
 
     }
@@ -99,7 +98,7 @@ class frnController extends Controller
     {
           $frn=DB::table('achats')->where('fournisseur',$id);
           if($frn->count()>0){
-                 return redirect()->route('fournisseurs.index')->withErrors('Vous ne pouvez pas supprimer un fournisseur à des achats');
+                 return redirect()->route('fournisseurs.index')->withErrors('Vous ne pouvez pas supprimer un fournisseur a des achats');
           }
           DB::table('fournisseurs')->where('id_frn',$id)->delete();
           return redirect()->back()->with('success','suppression réussi');

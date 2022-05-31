@@ -46,6 +46,8 @@ Route::middleware(['auth','isAdmin'])->group(function () {
     Route::get('/user/profil',[profilController::class,'index'])->name('profil.index');
     Route::put('/user/profil/update',[profilController::class,'update'])->name('profil.update');
     Route::put('/user/profil/password',[profilController::class,'update_pass'])->name('pass.update');
+    Route::get('/agents/all/export',[agentController::class,'exportPdf'])->name('agents.export');
+
 
 });
 
