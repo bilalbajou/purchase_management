@@ -31,7 +31,7 @@ Tableau du board
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Montant des achats </div>
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">3332 DH</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">{{$montant_achats->montant}} DH</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -63,20 +63,11 @@ Tableau du board
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            {{$wheather['location']['city']}} <br> {{Date('D')}} {{Date('y/m/d')}} </div>
-                                        <div class="h3 mb-0 font-weight-bold text-gray-800">{{$wheather['current_observation']['atmosphere']['humidity']}}</div>
+                                              {{Date('D')}} {{Date('y/m/d')}} </div>
+                                        <div class="h3 mb-0 font-weight-bold text-gray-800"><p class="h4" id="horloge"></p></div>
                                     </div>
                                     <div class="col-auto">
-                                        @if(($wheather_text=="Sunny") OR ($wheather_text="Mostly Sunny"))
-                                        <i class="far fa-sun fa-2x text-gray-300"></i>
-                                         @elseif(($wheather_text=='Mostly Cloudy')OR($wheather_text=="Partly Cloudy"))
-                                         <i class="fas fa-cloud-sun fa-2x text-gray-300"></i>
-                                         @elseif(($wheather_text=="Thunderstorms")OR($wheather_text=="Thunderstorms"))
-                                         <i class="fas fa-cloud-showers-heavy fa-2x text-gray-300"></i>
-                                         @elseif($wheather_text=="Rain")
-                                         <i class="fas fa-cloud-showers-heavy fa-2x text-gray-300"></i> 
-                                         @endif
-                                        
+                                        <i class="fas fa-clock fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +100,7 @@ Tableau du board
                                        <td>{{$item->first_name}}</td>
                                        <td>{{$item->email}}</td>
                                        <td>{{$item->nb_achats}}</td>
-                                       <td>{{$item->mt_achats}}</td>
+                                       <td>{{$item->mt_achats}} DH</td>
                                    </tr>
                                @endforeach
                             </tbody>
@@ -140,7 +131,7 @@ Tableau du board
                                          <td>{{$item->nom}}</td>
                                          <td>{{$item->adresse}}</td>
                                          <td>{{$item->nb_achats}}</td>
-                                         <td>{{$item->mt_achats}}</td>
+                                         <td>{{$item->mt_achats}} DH</td>
                                     </tr>
                                @endforeach
                             </tbody>
@@ -151,4 +142,5 @@ Tableau du board
                   </div>
             </div>
        </div>
+       
 @endsection
