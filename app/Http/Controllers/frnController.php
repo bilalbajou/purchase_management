@@ -17,7 +17,8 @@ class frnController extends Controller
     public function index()
     { 
         $frns=fournisseur::paginate(5);
-        return view('agent.fournisseur',compact('frns'));
+        $i=0;
+        return view('agent.fournisseur',compact('frns'))->with('i',$i);
     }
 
     /**

@@ -31,7 +31,7 @@
         <div class="table-wrapper">
             <table class="table table-striped table-hover">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>#</th>
                         <th>Nom</th>						
                         <th>Téléphone</th>
@@ -41,8 +41,8 @@
                 </thead>
                 <tbody>
                   @foreach ($frns as $value) 
-                       <tr>
-                        <td>{{$value->id_frn}}</td> 
+                       <tr class="text-center">
+                        <td>{{++$i}}</td> 
                         <td>{{$value->nom}}</td>
                         <td>{{$value->telephone}}</td>
                         <td>{{$value->adresse}}</td>

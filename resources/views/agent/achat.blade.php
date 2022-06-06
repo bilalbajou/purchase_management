@@ -23,7 +23,7 @@
         <div class="table-wrapper">
             <table class="table table-striped table-hover">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>#</th>
                         <th>Libellé</th>						
                         <th>Date d'achat</th>
@@ -34,8 +34,8 @@
                 </thead>
                 <tbody>
                   @foreach ($achats as $value)
-                       <tr>
-                        <td>{{$value->id_achat}}</td>
+                       <tr class="text-center">
+                        <td>{{++$i}}</td>
                         <td>{{$value->libellé}}</td>
                         <td>{{$value->date_achat}}</td>
                         <td>{{$value->montant_total}} DH</td>

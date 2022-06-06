@@ -31,17 +31,17 @@ Agent
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Nom</th>						
-                        <th>Prénom</th>
-                        <th>Email</th>
-                        <th>Action</th>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Nom</th>						
+                        <th class="text-center">Prénom</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                   @foreach ($user as $value)
-                       <tr>
-                        <td>{{$value->id}}</td>
+                       <tr class="text-center">
+                        <td>{{++$i}}</td>
                         <td>{{$value->name}}</td>
                         <td>{{$value->first_name}}</td>
                         <td>{{$value->email}}</td>            

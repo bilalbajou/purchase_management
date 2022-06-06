@@ -31,15 +31,15 @@ table {
 <body>
     <h2>Liste des achats</h2>    
     <table>
-      <tr>
+      <tr class="text-center">
         <th>Libellé</th>
         <th>Date d'achat</th>
         <th>Montant</th>
         <th>Fournisseur</th>
       </tr>
       @foreach ($achats as $value)
-        <tr>
-             <td>{{$value->libellé}}</td>
+        <tr class="text-center">
+             <td>{{++$i}}</td>
              <td>{{$value->date_achat}}</td>
              <td>{{$value->montant_total}}</td>
              <td>{{$value->fournisseur}}</td>   

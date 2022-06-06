@@ -23,7 +23,8 @@ class achatController extends Controller
       $agent=Auth::user()->id;
       $frns=DB::table('frn_view')->get();
       $achats=DB::table('achats_view')->where('Agent',Auth::user()->id)->paginate(8);
-      return view('agent.achat',compact('frns'),compact('achats'))->with('agent',$agent);
+      $i=0;
+      return view('agent.achat',compact('frns'),compact('achats'))->with('agent',$agent)->with('i',$i);
     }
 
     /**

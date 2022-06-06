@@ -16,6 +16,8 @@ class roleController extends Controller
         public function index(Request $request){
             $role=Auth::user()->type_utilisateur;
             $etat=Auth::user()->etat_compte;
+            $i=0;
+            $j=0;
             $nb_achats=achat::all()->count();
             $nb_frns=fournisseur::all()->count();
             $agents=DB::table('view_agent')->get();
@@ -26,7 +28,7 @@ class roleController extends Controller
                  if($role=="agent")
                  return view('agent.dashboard');
                  else if($role=="admin")
-                 return view('admin.dashboard',['nb_achats'=>$nb_achats,'nb_frns'=>$nb_frns,'montant_achats'=>$montant_achats,'agents'=>$agents,'frns'=>$frns]);
+                 return view('admin.dashboard',['nb_achats'=>$nb_achats,'nb_frns'=>$nb_frns,'montant_achats'=>$montant_achats,'agents'=>$agents,'frns'=>$frns,'i'=>$i,'j'=>$j]);
                  else 
                  abort(403);break;
                 case 'D':

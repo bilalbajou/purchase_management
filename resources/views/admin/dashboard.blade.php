@@ -84,23 +84,23 @@ Tableau du board
                           <table class="table">
                             <thead>
                               <tr>
-                                <th>#</th>
-                                <th>Nom</th>
-                                <th>Prénom</th>
-                                <th>Email</th>
-                                <th>Nombre d'achats</th>
-                                <th>Montant Global</th>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Nom</th>
+                                <th class="text-center">Prénom</th>
+                                <th class="text-center">Email</th>
+                                <th class="text-center">Nombre d'achats</th>
+                                <th class="text-center">Montant Global</th>
                               </tr>
                             </thead>
                             <tbody>
                                @foreach ($agents as $item)
                                    <tr>
-                                       <td>{{$item->id}}</td>
-                                       <td>{{$item->name}}</td>
-                                       <td>{{$item->first_name}}</td>
-                                       <td>{{$item->email}}</td>
-                                       <td>{{$item->nb_achats}}</td>
-                                       <td>{{$item->mt_achats}} DH</td>
+                                       <td class="text-center">{{++$i}}</td>
+                                       <td class="text-center">{{$item->name}}</td>
+                                       <td class="text-center">{{$item->first_name}}</td>
+                                       <td class="text-center">{{$item->email}}</td>
+                                       <td class="text-center">{{$item->nb_achats}}</td>
+                                       <td class="text-center">{{$item->mt_achats}} DH</td>
                                    </tr>
                                @endforeach
                             </tbody>
@@ -116,22 +116,22 @@ Tableau du board
                         <div class="table-responsive">
                           <table class="table table-hover">
                             <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>Nom</th>
-                                <th>Adresse</th>
-                                <th>Nombre d'achats</th>
-                                <th>Montant Global</th>
+                              <tr class="text-center">
+                                <th class="text-center">#</th>
+                                <th class="text-center">Nom</th>
+                                <th class="text-center">Adresse</th>
+                                <th class="text-center">Nombre d'achats</th>
+                                <th class="text-center">Montant Global</th>
                               </tr>
                             </thead>
                             <tbody>
                                @foreach ($frns as $item)
-                                    <tr>
-                                         <td>{{$item->id_frn}}</td>
-                                         <td>{{$item->nom}}</td>
-                                         <td>{{$item->adresse}}</td>
-                                         <td>{{$item->nb_achats}}</td>
-                                         <td>{{$item->mt_achats}} DH</td>
+                                    <tr class="text-center">
+                                         <td class="text-center">{{++$j}}</td>
+                                         <td class="text-center">{{$item->nom}}</td>
+                                         <td class="text-center">{{$item->adresse}}</td>
+                                         <td class="text-center">{{$item->nb_achats}}</td>
+                                         <td class="text-center">{{$item->mt_achats}} DH</td>
                                     </tr>
                                @endforeach
                             </tbody>

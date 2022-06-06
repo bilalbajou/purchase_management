@@ -61,7 +61,7 @@ Agent
                 <tbody>
                   @foreach ($achats as $value)
                        <tr>
-                        <td>{{$value->id_achat}}</td>
+                        <td>{{++$i}}</td>
                         <td>{{$value->libellé}}</td>
                         <td>{{$value->date_achat}}</td>
                         <td>{{$value->montant_total}} DH</td> 

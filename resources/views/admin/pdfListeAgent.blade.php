@@ -38,7 +38,7 @@ table {
         <th>État du compte</th>
       </tr>
       @foreach ($agent as $value)
-        <tr>
+        <tr class="text-center">
              <td>{{$value->name}}</td>
              <td>{{$value->first_name}}</td>
              <td>{{$value->email}}</td>

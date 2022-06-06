@@ -31,13 +31,13 @@ table {
 <body>
     <h2>Liste des fournisseurs</h2>    
     <table>
-      <tr>
+      <tr class="text-center">
         <th>Nom</th>
         <th>Adresse</th>
         <th>Téléphone</th>
       </tr>
       @foreach ($frns as $value)
-        <tr>
+        <tr class="text-center">
              <td>{{$value->nom}}</td>
              <td>{{$value->adresse}}</td>
              <td>{{$value->telephone}}</td>

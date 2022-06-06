@@ -20,7 +20,8 @@ class agentController extends Controller
     public function index()
     {
         $user=DB::table('users')->where('type_utilisateur','agent')->paginate(8);
-        return view('admin.agent',compact('user'));
+        $i=0;
+        return view('admin.agent',compact('user'))->with('i',$i);
     }
 
     /**
