@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Mail\infoAgent;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class agentController extends Controller
@@ -43,12 +44,22 @@ class agentController extends Controller
      */
     public function store(Request $request)
     {
-            
+
+            $response=Http :: withHeaders(
+        [
+            'X-RapidAPI-Host' => 'validect-email-verification-v1.p.rapidapi.com',
+            'X-RapidAPI-Key' => '04e4c6a56emshd0b636fcfc9635dp1b746bjsn067950035424'
+        ]
+        )->get('https://validect-email-verification-v1.p.rapidapi.com/v1/verify?email='.$request->input('email'));
+        if($response->json()['status']=='invalid'){
+            return  redirect()->route('agents.index')->withErrors('Email n\'est pas réel');
+         }
            $all_users=User::all();
            foreach($all_users as $value){
                  if($value->email==$request->email)
                    return redirect()->route('agents.index')->withErrors('Email existe déjà');break;
            }
+
           $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');
           $password = substr($random, 8, 10);
           $user=new User();

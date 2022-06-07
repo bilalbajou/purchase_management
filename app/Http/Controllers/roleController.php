@@ -26,7 +26,7 @@ class roleController extends Controller
             switch($etat) {
                 case 'A':
                  if($role=="agent")
-                 return view('agent.dashboard');
+                 return redirect()->route('achats.index');
                  else if($role=="admin")
                  return view('admin.dashboard',['nb_achats'=>$nb_achats,'nb_frns'=>$nb_frns,'montant_achats'=>$montant_achats,'agents'=>$agents,'frns'=>$frns,'i'=>$i,'j'=>$j]);
                  else 

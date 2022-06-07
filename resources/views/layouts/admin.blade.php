@@ -84,14 +84,7 @@
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('redirect')}}">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Tableu du board</span>
-            </a>
-          </li>
-          
+        <ul class="nav">  
           <li class="nav-item">
             <a class="nav-link"  href="{{route('achats.index')}}" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-cash-multiple"></i>
@@ -99,20 +92,12 @@
             </a>
             
           </li>
-         
           <li class="nav-item">
             <a href="{{route('fournisseurs.index')}}" class="nav-link"  href="" aria-expanded="false" aria-controls="form-elements">
               <i class="menu-icon mdi mdi-account-tie"></i>
               <span class="menu-title">Fournisseurs</span>
             </a>
-        
-          </li>
-       
-          
-          
-         
-          
-         
+          </li>  
         </ul>
       </nav>
       <!-- partial -->
