@@ -1,7 +1,7 @@
 @extends('layouts.admin2')
 
 @section('page_title')
-Agent
+Achats
 @endsection
 @section('content')
 <div class="container-xl">

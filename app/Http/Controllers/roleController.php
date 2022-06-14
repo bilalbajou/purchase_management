@@ -32,7 +32,7 @@ class roleController extends Controller
                  else 
                  abort(403);break;
                 case 'D':
-                  return redirect('/')->withErrors('Votre compte est désactivé');
+                  return redirect('/')->with('error','Votre compte est désactivé');
 
             }
     

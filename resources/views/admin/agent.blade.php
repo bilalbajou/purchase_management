@@ -7,19 +7,16 @@ Agent
 <div class="container-xl">
     <div class="table-responsive">
       <div class="d-flex">
-        @if ($errors->any())
-        <div class="alert alert-danger d-flex  justify-content-start mb-2alert alert-danger">
-            
-                @foreach ($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                @endforeach
+        @if (\Session::has('error'))
+        <div class="alert alert-danger d-flex  justify-content-start mb-2" role="alert">
+          {!! \Session::get('error') !!}
         </div>
-         @endif
-         @if (\Session::has('success'))
-         <div class="alert alert-primary d-flex  justify-content-start mb-2" role="alert">
-           {!! \Session::get('success') !!}
-         </div>
-         @endif
+        @endif
+        @if (\Session::has('success'))
+        <div class="alert alert-primary d-flex  justify-content-start mb-2" role="alert">
+          {!! \Session::get('success') !!}
+        </div>
+        @endif
          <div class="d-flex  mb-2 justify-content-end">
           <button type="button" id="btn_add" class="btn btn-outline-primary ms-2" data-target="#addModal" data-toggle="modal">Ajouter</button>
           <a href="{{route('agents.export')}}"> <button type="button" id="btn_export" class="btn btn-outline-primary ms-2">Exporter</button></a>

@@ -1,7 +1,7 @@
 @extends('layouts.admin2')
 
 @section('page_title')
-Tableau du board
+Tableau du bord
 @endsection
 
 @section('content')

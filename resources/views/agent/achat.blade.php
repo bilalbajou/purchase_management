@@ -8,7 +8,11 @@
 <div class="container-xl">
     <div class="table-responsive">
       <div class="d-flex">
-         
+        @if (\Session::has('error'))
+        <div class="alert alert-danger d-flex  justify-content-start mb-2" role="alert">
+          {!! \Session::get('error') !!}
+        </div>
+        @endif
          @if (\Session::has('success'))
          <div class="alert alert-primary d-flex  justify-content-start mb-2" role="alert">
            {!! \Session::get('success') !!}

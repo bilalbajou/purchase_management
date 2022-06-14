@@ -68,8 +68,9 @@ class achatController extends Controller
     public function exportPdf(){
     
         $achats=DB::table('achats_view_v2')->where('id_agent',Auth::user()->id)->get();
+        $i=0;
          view()->share('achats',$achats);
-        $pdf = PDF::loadView('agent.pdfListeAchat',compact('achats'));
+        $pdf = PDF::loadView('agent.pdfListeAchat',compact('achats'),compact('i'));
         return  $pdf->download('liste_des_achats.pdf');
     }
 

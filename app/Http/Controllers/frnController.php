@@ -99,7 +99,7 @@ class frnController extends Controller
     {
           $frn=DB::table('achats')->where('fournisseur',$id);
           if($frn->count()>0){
-                 return redirect()->route('fournisseurs.index')->withErrors('Vous ne pouvez pas supprimer un fournisseur a des achats');
+                 return redirect()->route('fournisseurs.index')->with('error','Vous ne pouvez pas supprimer un fournisseur a des achats');
           }
           DB::table('fournisseurs')->where('id_frn',$id)->delete();
           return redirect()->back()->with('success','suppression réussi');
