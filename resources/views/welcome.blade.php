@@ -23,6 +23,11 @@
                 </ul>
             </div>
         @endif
+        @if (\Session::has('error'))
+        <div class="alert alert-danger d-flex  justify-content-start mb-2" role="alert">
+          {!! \Session::get('error') !!}
+        </div>
+        @endif
           <form class="card-body cardbody-color p-lg-5" method="POST" action="{{route('login')}}">
             @csrf
             <div class="text-center">

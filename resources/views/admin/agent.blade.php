@@ -12,6 +12,13 @@ Agent
           {!! \Session::get('error') !!}
         </div>
         @endif
+        @error('email')
+             <div class="d-flex">
+              <div class="alert alert-danger d-flex  justify-content-start mb-2" role="alert">
+                Email existe déjà
+              </div>
+             </div>
+        @enderror
         @if (\Session::has('success'))
         <div class="alert alert-primary d-flex  justify-content-start mb-2" role="alert">
           {!! \Session::get('success') !!}

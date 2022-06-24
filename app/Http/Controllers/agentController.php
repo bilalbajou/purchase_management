@@ -52,14 +52,20 @@ class agentController extends Controller
         ]
         )->get('https://validect-email-verification-v1.p.rapidapi.com/v1/verify?email='.$request->input('email'));
         if($response->json()['status']=='invalid'){
-            return  redirect()->route('agents.index')->withErrors('Email n\'est pas réel');
+            return  redirect()->route('agents.index')->with('error','Email n\'est pas réel');
          }
-           $all_users=User::all();
-           foreach($all_users as $value){
-                 if($value->email==$request->email)
-                   return redirect()->route('agents.index')->withErrors('Email existe déjà');break;
-           }
-
+        //    $all_users=User::all();
+        //    foreach($all_users as $value){
+        //          if($value->email==$request->email)
+        //            return redirect()->route('agents.index')->with('error','Email existe déjà');break;
+        //    }
+        $request->validate([
+            'email' => 'unique:users'
+        ]);
+        // return [
+        //     'email.unique:users' => 'Email existe déjà',
+        // ];
+          
           $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');
           $password = substr($random, 8, 10);
           $user=new User();
