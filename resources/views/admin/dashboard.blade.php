@@ -23,7 +23,7 @@ Tableau du bord
                                 </div>
                             </div>
                         </div>
-                     
+
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-80 py-2">
                                 <div class="card-body">
@@ -31,11 +31,11 @@ Tableau du bord
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Montant des achats </div>
-                                            <div class="h3 mb-0 font-weight-bold text-gray-800">{{$montant_achats->montant}} DH</div>
+                                            <div class="h3 mb-0 font-weight-bold text-gray-800">{{$montant_achats}} DH</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                         
+
                                         </div>
                                     </div>
                                 </div>
@@ -142,5 +142,5 @@ Tableau du bord
                   </div>
             </div>
        </div>
-       
+
 @endsection
